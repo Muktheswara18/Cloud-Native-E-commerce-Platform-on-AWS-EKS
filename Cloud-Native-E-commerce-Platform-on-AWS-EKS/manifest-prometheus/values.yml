@@ -1,0 +1,69 @@
+#Resource allocation is dependent on how cluster size and how much resources that is being handleded 
+operator:
+  resources:
+    limits:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+  kubeletService:
+    enabled: false
+
+prometheus:
+  resources:
+    limits:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+
+#Depending on what needs to be monitored, node exporter and kube-state-metrics can be set to true and appropirate resource allocation can be passed to it.
+exporters:
+  node-exporter:
+    enabled: false
+  kube-state-metrics:
+    enabled: false
+kubelet:
+  enabled: false
+kubeApiServer:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+coreDns:
+  enabled: false
+kubeProxy:
+  enabled: false
+
+alertmanager:
+  resources:
+    limits:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+  configSelector:
+    matchLabels:
+      alertmanagerConfig: slack
+
+blackboxExporter:
+  resources:
+    limits:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      ephemeral-storage: 1Gi
+      memory: 512Mi
+
